@@ -1,0 +1,20 @@
+{
+  "name": "myroom",
+  "version": "1.0.0",
+  "description": "个人空间",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x760591483/myroom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x760591483/myroom/issues"
+  },
+  "homepage": "https://github.com/x760591483/myroom#readme"
+}
