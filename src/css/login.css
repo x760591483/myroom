@@ -1,0 +1,40 @@
+body {
+  background: url('../image/index_body_bg.gif') no-repeat 0 0;
+  background-size: 100% 100%;
+  /* color: #fff; */
+  /* font-family: 'Pacifico', monospace; */
+}
+
+#formSection{
+  width:60%;
+  margin:50px auto 0;
+  background-color: rgba(255,255,255,.2);
+  padding:50px;
+}
+input[type=text],
+input[type=password]{
+  border-radius: 4px;
+  outline: none;
+  -webkit-appearance: none;
+}
+.label-input{
+
+  display: flex;
+  margin-bottom:10px;
+  /* justify-content: space-between; */
+}
+.label-input label{
+  color:#ccc;
+  width:4em;
+}
+.label-input input {
+  width:200px;
+  border: 1px solid #ccc;
+  margin-left:20px;
+  height:14px;
+  padding:5px 10px;
+}
+
+
+
+
