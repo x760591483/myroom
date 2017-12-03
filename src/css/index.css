@@ -63,6 +63,13 @@ nav ul li a:hover {
   font-family: 'VT323', monospace; */
 }
 
+nav ul li.cur a{
+  display: inline-block;
+  border: 1px solid #fff;
+  padding: 5px 10px; 
+}
+
+
 main {
   text-align: center;
   margin-top: 10%;
