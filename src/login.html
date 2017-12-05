@@ -17,24 +17,71 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
-  <form action="/login" method="post" id="formSection">
-    <div class="label-input" required>
+  <form id="formSection">
+    <div class="label-input">
       <label for="username">用户名</label>
-      <input type="text" name="username" maxlength="20">
+      <input type="text" name="username" id="username" maxlength="20" required>
     </div>
     <div class="label-input">
       <label for="password">密码</label>
-      <input type="password" name="password" maxlength="30" required>
+      <input type="password" name="password" id="password" maxlength="30" required>
+
     </div>
     <div>
-      <button type="submit">登录</button>
+      <button id="submitBtn">登录</button>
     </div>
   </form>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="./js/layer.layer.js"></script>
+  <script>
+    var loginApi = '/login'
+    var username = $('#username')
+    var password = $('#password')
+
+
+    function ajaxSubmit(username, password) {
+      $.post(loginApi, {
+          username,
+          password
+        },
+        function (data) {
+          console.log(data)
+          if(typeof data === 'string'){
+            data = JSON.parse(data)
+          }
+          if (data.status !== 0) {
+            layer.msg(data.msg);
+            return
+          }
+          layer.msg('登录成功~')
+        }
+      )
+    }
+    $('#submitBtn').click(function () {
+      var usernameVal = username.val()
+      var passwordVal = password.val()
+      if (usernameVal && passwordVal) {
+        ajaxSubmit(usernameVal, passwordVal)
+        return
+      }
+      layer.msg('用户名和密码不能为空')
+    })
+
+/*
+{
+  status:0, 0表示正常 1表示错误
+  msg:'', 状态的说明
+  data:{},此接口不需要数据
+}
+
+*/
+  </script>
+
 
 
 </body>
